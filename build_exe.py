@@ -17,13 +17,14 @@ def build_executable():
         '--onefile',
         '--console',
         '--clean',
+        '--add-data=credentials.json;.',  # Bundle credentials.json inside EXE
         '--hidden-import=googleapiclient',
         '--hidden-import=google_auth_oauthlib',
     ])
     
-    print("\n✅ Build complete!")
+    print("\n[SUCCESS] Build complete!")
     print("Executable is located in 'dist/GmailDeleter.exe'")
-    print("\n⚠️ IMPORTANT: You must copy 'credentials.json' to the same folder as the exe!")
+    print("This is a STANDALONE app. You can move the .exe to any PC and it will work!")
 
 if __name__ == "__main__":
     build_executable()

@@ -15,35 +15,38 @@ You MUST enable the Gmail API and download `credentials.json` for this app to wo
 2. Select **Gmail API** from the results
 3. Click **ENABLE**
 
-## Step 3: Configure OAuth Consent Screen
-1. Go to **APIs & Services** → **OAuth consent screen** (left menu)
-2. Choose **External** → Click **Create**
-3. **App Information**:
-   - App name: `GmailCleaner`
-   - User support email: (Select your email)
-   - Developer contact email: (Type your email)
-4. Click **SAVE AND CONTINUE**
-5. **Scopes**: Click **ADD OR REMOVE SCOPES**
-   - Search for `gmail.modify`
-   - Check the box for `https://www.googleapis.com/auth/gmail.modify`
-   - Click **UPDATE**, then **SAVE AND CONTINUE**
-6. **Test Users**: Click **ADD USERS**
-   - Enter your Gmail address (and any others you want to clean)
-   - Click **ADD**, then **SAVE AND CONTINUE**
+## Step 3: Configure Consent Screen (New UI)
+
+1.  **Click `Branding`** (Left Menu)
+    *   **App name**: Enter `GmailCleaner`
+    *   **User support email**: Select your email
+    *   **Developer contact email**: Enter your email
+    *   Click **SAVE**
+
+2.  **Click `Data Access`** (Left Menu)
+    *   Click **ADD OR REMOVE SCOPES**
+    *   Search for `gmail.modify`
+    *   Check: `https://www.googleapis.com/auth/gmail.modify`
+    *   Click **UPDATE** → **SAVE**
+
+3.  **Click `Audience`** (Left Menu)
+    *   Scroll down to **Test users**
+    *   Click **ADD USERS**
+    *   Enter your Gmail address
+    *   Click **SAVE**
 
 ## Step 4: Create Credentials
-1. Go to **APIs & Services** → **Credentials**
-2. Click **+ CREATE CREDENTIALS** → **OAuth client ID**
-3. **Application type**: Select **Desktop app**
-4. Name: `GmailCleaner Desktop`
-5. Click **CREATE**
 
-## Step 5: Download the File
-1. A popup will show "OAuth client created"
-2. Click **DOWNLOAD JSON**
-3. Rename the file to **`credentials.json`**
-4. Move it to the project folder:
-   `c:\Users\Me\Desktop\Files\Python\EmailDelete\`
+1.  **Click `Clients`** (Left Menu)
+    *   Click **CREATE CLIENT**
+    *   **Application type**: `Desktop app`
+    *   **Name**: `GmailCleaner Desktop`
+    *   Click **CREATE**
+
+2.  **Download JSON**
+    *   Click the **Download JSON** icon (⬇️) next to the new client
+    *   Rename file to: **`credentials.json`**
+    *   Move to project folder: `c:\Users\Me\Desktop\Files\Python\EmailDelete\`
 
 ---
 

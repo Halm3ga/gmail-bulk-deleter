@@ -1,10 +1,21 @@
 import os
 import pickle
+import sys
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 
 # If modifying these scopes, delete the file token.pickle.
 SCOPES = ['https://www.googleapis.com/auth/gmail.modify']
+
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
 
 def get_credentials():
     """Gets valid user credentials from storage or initiates OAuth2 flow."""
@@ -21,13 +32,16 @@ def get_credentials():
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         else:
-            if not os.path.exists('credentials.json'):
-                print("❌ ERROR: credentials.json not found!")
+            # Use resource_path to find bundled credentials
+            creds_file = resource_path('credentials.json')
+            
+            if not os.path.exists(creds_file):
+                print(f"❌ ERROR: credentials.json not found at {creds_file}!")
                 print("Please download it from Google Cloud Console and place it in this folder.")
                 return None
                 
             flow = InstalledAppFlow.from_client_secrets_file(
-                'credentials.json', SCOPES)
+                creds_file, SCOPES)
             creds = flow.run_local_server(port=0)
         
         # Save the credentials for the next run
