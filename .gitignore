@@ -1,0 +1,24 @@
+# Git
+.git/
+*.py[cod]
+*$py.class
+__pycache__/
+
+# Environments
+env/
+venv/
+.env
+
+# Distribution / Packaging
+build/
+dist/
+*.spec
+
+# Credentials (NEVER COMMIT THESE)
+credentials.json
+token.pickle
+client_secret*.json
+
+# IDE
+.vscode/
+.idea/
